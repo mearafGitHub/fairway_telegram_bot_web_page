@@ -3,7 +3,7 @@ import "./App.css";
 import Card from "./Components/Card/Card";
 import Cart from "./Components/Cart/Cart";
 const { getData } = require("./db/db");
-const foods = getData();
+const menu_items = getData();
 
 const tele = window.Telegram.WebApp;
 
@@ -14,12 +14,12 @@ function App() {
     tele.ready();
   });
 
-  const onAdd = (food) => {
+  const onAdd = (menu_item) => {
     const exist = cartItems.find((x) => x.id === food.id);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === food.id ? { ...exist, quantity: exist.quantity + 1 } : x
+          x.id === menu_item.id ? { ...exist, quantity: exist.quantity + 1 } : x
         )
       );
     } else {
@@ -27,14 +27,14 @@ function App() {
     }
   };
 
-  const onRemove = (food) => {
+  const onRemove = (menu_item) => {
     const exist = cartItems.find((x) => x.id === food.id);
     if (exist.quantity === 1) {
       setCartItems(cartItems.filter((x) => x.id !== food.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === food.id ? { ...exist, quantity: exist.quantity - 1 } : x
+          x.id === menu_item.id ? { ...exist, quantity: exist.quantity - 1 } : x
         )
       );
     }
@@ -50,9 +50,9 @@ function App() {
       <h1 className="heading">Order Food</h1>
       <Cart cartItems={cartItems} onCheckout={onCheckout}/>
       <div className="cards__container">
-        {foods.map((food) => {
+        {menu_items.map((menu_item) => {
           return (
-            <Card food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
+            <Card menu_items={menu_items} key={menu_items.id} onAdd={onAdd} onRemove={onRemove} />
           );
         })}
       </div>
