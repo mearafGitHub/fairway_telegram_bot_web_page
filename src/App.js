@@ -15,7 +15,7 @@ function App() {
   });
 
   const onAdd = (menu_item) => {
-    const exist = cartItems.find((x) => x.id === food.id);
+    const exist = cartItems.find((x) => x.id === menu_item.id);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
@@ -23,14 +23,14 @@ function App() {
         )
       );
     } else {
-      setCartItems([...cartItems, { ...food, quantity: 1 }]);
+      setCartItems([...cartItems, { ...menu_item, quantity: 1 }]);
     }
   };
 
   const onRemove = (menu_item) => {
-    const exist = cartItems.find((x) => x.id === food.id);
+    const exist = cartItems.find((x) => x.id === menu_item.id);
     if (exist.quantity === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== food.id));
+      setCartItems(cartItems.filter((x) => x.id !== menu_item.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
@@ -47,12 +47,12 @@ function App() {
 
   return (
     <>
-      <h1 className="heading">Order Food</h1>
+      <h1 className="heading">Fairway Account</h1>
       <Cart cartItems={cartItems} onCheckout={onCheckout}/>
       <div className="cards__container">
         {menu_items.map((menu_item) => {
           return (
-            <Card menu_items={menu_items} key={menu_items.id} onAdd={onAdd} onRemove={onRemove} />
+            <Card menu_item={menu_item} key={menu_items.id} onAdd={onAdd} onRemove={onRemove} />
           );
         })}
       </div>

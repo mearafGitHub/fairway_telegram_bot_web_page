@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #e0c521;
+  --primary-color: #efb600;
 }
 
 .btn {
@@ -24,7 +24,7 @@
 }
 
 .btn.checkout {
-  background-color: rgb(38, 121, 38);
+  background-color: #53d4ab;
   width: 150px;
   color: #fff;
   font-size: 14px;
@@ -35,11 +35,11 @@
 }
 
 .btn.add:hover {
-  background-color: #cab320;
+  background-color: #ffb600;
 }
 
 .btn.add:active {
-  background-color: #ad9a1c;
+  background-color: #ffb600;
 }
 
 .btn.remove:hover {
@@ -50,8 +50,8 @@
 }
 
 .btn.checkout:hover {
-  background-color: rgb(41, 141, 41);
+  background-color: #53d4ab;
 }
 .btn.checkout:active {
-  background-color: rgb(30, 93, 41);
+  background-color: #53d4ab;
 }
