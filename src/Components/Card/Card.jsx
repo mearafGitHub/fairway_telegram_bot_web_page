@@ -21,9 +21,9 @@ function Card({ menu_item, onAdd, onRemove }) {
       >
         {count}
       </span>
-      <div className="image__container">
+      {/* <div className="image__container">
         <img src={Image} alt={title} />
-      </div>
+      </div> */}
 
       <div className="btn-container">
         <Button title={title} type={"add"} onClick={handleIncrement} />

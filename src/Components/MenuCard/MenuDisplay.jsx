@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-import "./App.css";
-import Card from "./Components/Card/Card";
-import Cart from "./Components/Cart/Cart";
+import "./MenuDisplay";
+import MenuCard from "./MenuCard";
 
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-const { getData } = require("./db/db");
+const { getData } = require("../../db/db");
+console.log("MenuDisplay")
 const menu_items = getData();
 
 const tele = window.Telegram.WebApp;
@@ -52,11 +49,11 @@ function App() {
   return (
     <>
       <h1 className="heading">Fairway Account</h1>
-      <Cart cartItems={cartItems} onCheckout={onCheckout}/>
+      <MenuCard cartItems={cartItems} onCheckout={onCheckout}/>
       <div className="cards__container">
         {menu_items.map((menu_item) => {
           return (
-            <Card menu_item={menu_item} key={menu_items.id} onAdd={onAdd} onRemove={onRemove} />
+            <MenuCard menu_item={menu_item} key={menu_items.id} onAdd={onAdd} onRemove={onRemove} />
           );
         })}
       </div>

@@ -6,10 +6,10 @@ function Cart({ cartItems, onCheckout }) {
 
   return (
     <div className="cart__container">
-      {cartItems.length === 0 ? "You haven't chossen any so far" : " "}
-      <br /> <span className=""> Some message for the user. </span>
+      {cartItems.length === 0 ? "You don't have Fairway account,yet" : " "}
+      <br /> <span className="cart__container"> You can create account easily here. </span>
       <Button
-        title={`${cartItems.length === 0 ? "Done !" : "Checkout"} `}
+        title={`${cartItems.length === 0 ? "Done" : "Checkout"} `}
         type={"checkout"}
         disable={cartItems.length === 0 ? true : false}
         onClick={onCheckout}
